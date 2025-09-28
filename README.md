@@ -1,89 +1,76 @@
 # 🚀 Portfolio Website
 
-<p align="center"><img src="./assests/images/hero1.png" alt="Portfolio Website Banner" width="700"></p>
+<p align="center"><img src="./assests/images/hero.gif" alt="Portfolio Website Banner" width="700"></p>
+
+<p align="center">
+  <a href="https://github.com/grewal16/portfolio_website/stargazers"><img src="https://img.shields.io/github/stars/grewal16/portfolio_website?style=for-the-badge" alt="GitHub stars"></a>
+  <a href="https://github.com/grewal16/portfolio_website/network/members"><img src="https://img.shields.io/github/forks/grewal16/portfolio_website?style=for-the-badge" alt="GitHub forks"></a>
+  <a href="https://github.com/grewal16/portfolio_website/issues"><img src="https://img.shields.io/github/issues/grewal16/portfolio_website?style=for-the-badge" alt="GitHub issues"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/github/license/grewal16/portfolio_website?style=for-the-badge" alt="GitHub license"></a>
+</p>
 
 ## Short Description
-Embark on a journey through the digital realm with this meticulously crafted personal portfolio website. Designed as a dynamic and immersive showcase, this platform vividly highlights a developer's skills, projects, and professional experience. It's more than just a resume; it's an interactive story of innovation, problem-solving, and dedication, engineered to captivate and inform.
+Unleash your professional narrative with this dynamic and highly responsive personal portfolio website. Crafted for impact, this project provides a sleek, modern, and interactive platform to showcase your skills, experience, and projects. It's not just a website; it's a digital representation of your expertise, designed to leave a lasting impression.
 
 ## ✨ Key Features
-*   **Interactive Project Showcase:** Explore a diverse array of projects with dedicated sections, dynamically loaded from `projects.json` for easy management.
-*   **Comprehensive Experience Timeline:** Navigate through a detailed timeline of professional and educational milestones, presenting a clear career trajectory.
-*   **Dynamic Skills Display:** Get a quick overview of technical proficiencies, powered by an organized `skills.json` dataset.
-*   **Responsive & Modern Design:** Enjoy a seamless viewing experience across all devices, thanks to a fluid and adaptive user interface crafted with modern CSS.
-*   **Visual Enhancements:** Engages visitors with captivating animations, smooth transitions, and a subtle particle background effect for an immersive feel.
-*   **Integrated Resume:** Provides a direct link to a professional resume (`assests/resume.pdf`) for easy access and detailed information.
-*   **Automated Deployment (CI/CD):** Leverages GitHub Actions for robust Continuous Integration and Continuous Deployment, ensuring the website is always up-to-date and reliably delivered.
-*   **Elegant Error Handling:** Features a custom 404 page for a polished user experience, even when navigation goes awry.
+*   **Stunning & Responsive Design:** Adapts beautifully across all devices, from desktops to mobile phones, ensuring a seamless user experience.
+*   **Dedicated Sections:** Clearly organized sections for projects, skills, and professional experience, making navigation intuitive.
+*   **Interactive UI/UX:** Engaging visual elements and smooth transitions powered by modern JavaScript.
+*   **Automated Deployment (CI/CD):** Integrated GitHub Actions workflow ensures continuous integration and delivery for effortless updates.
+*   **Data-Driven Content:** Easily manage and update your projects and skills via simple JSON files, keeping your portfolio always current.
+*   **Custom 404 Page:** A branded and user-friendly error page enhances the overall professionalism.
+*   **Optimized Performance:** Fast loading times and a smooth browsing experience.
 
 ## Who is this for?
-This portfolio website is an essential tool for:
-*   **Aspiring Developers:** To learn from a well-structured, modern frontend project.
-*   **Recruiters & Hiring Managers:** To efficiently evaluate skills, experience, and project contributions.
-*   **Collaborators:** To understand a developer's expertise and identify potential synergy.
-*   **Clients:** To review past work and assess capabilities for future engagements.
-*   **Anyone curious** about a developer's technical journey and accomplishments.
+This project is ideal for:
+*   **Software Developers & Engineers:** Looking for a polished, ready-to-deploy platform to highlight their technical prowess.
+*   **Designers & Creatives:** Seeking a visually appealing site to display their creative portfolio.
+*   **Job Seekers:** Who want to stand out to recruiters with a professional online presence.
+*   **Students & Graduates:** Building their first impressive portfolio.
+*   **Anyone** wanting a robust and attractive personal website without building from scratch.
 
 ## Technology Stack & Architecture
-This project is built using a robust and widely adopted set of frontend technologies, ensuring high performance, maintainability, and broad compatibility.
+This portfolio website leverages a powerful combination of modern frontend technologies and development practices:
 
-*   **Frontend Development:**
-    *   **HTML5:** For structuring the web content.
-    *   **CSS3:** For styling and responsive design, including custom animations.
-    *   **JavaScript (ES6+):** For interactive elements, dynamic content loading, and visual effects (e.g., `particles.min.js`).
-*   **Content Management:**
-    *   **JSON:** Used for storing and dynamically rendering project details (`projects.json`) and skills information (`skills.json`).
-*   **Development Tools:**
-    *   **VS Code:** Configuration for a streamlined development environment (`.vscode/settings.json`).
-*   **Continuous Integration/Continuous Deployment (CI/CD):**
-    *   **GitHub Actions:** Automates the testing and deployment workflow, ensuring efficient updates (`.github/workflows/ci-cd.yml`).
+*   **Frontend:** HTML5, CSS3, JavaScript
+*   **Styling:** Custom CSS (`assests/css/style.css`, `assests/css/404.css`) for a unique aesthetic.
+*   **Interactivity:** Vanilla JavaScript (`assests/js/app.js`, `assests/js/script.js`, `assests/js/404.js`) with external libraries like `particles.min.js` for dynamic backgrounds.
+*   **Content Management:** JSON files (`projects/projects.json`, `skills.json`) for easily structured and modifiable data.
+*   **Version Control:** Git & GitHub.
+*   **Deployment Automation:** GitHub Actions (`.github/workflows/ci-cd.yml`) for streamlined CI/CD to static hosting platforms (e.g., GitHub Pages).
 
 ## 📊 Architecture & Database Schema
-Given this is a static portfolio website, a traditional database schema isn't applicable. Instead, the architecture focuses on efficient content delivery and a smooth user experience, leveraging local JSON files for dynamic data.
+This project is a static site with no backend database. Its architecture focuses on a client-side rendering model, fetching data from local JSON files.
 
 ```mermaid
 graph TD
-    A["User"] --> B["Web Browser"];
-    B --> C["Load index.html"];
-    C --> D["Load Global Assets (CSS, JS, Images)"];
-    D --> E{"User Navigates"};
-    E -- To Home --> F["Render Main Page"];
-    E -- To Projects --> G["Load projects/index.html"];
-    G --> H["Fetch projects/projects.json"];
-    H --> I["Dynamically Render Projects"];
-    E -- To Experience --> J["Load experience/index.html"];
-    J --> K["Dynamically Render Experience"];
-    F & I & K --> L["Display Interactive Portfolio"];
+    A["User Accesses URL"] --> B["Homepage (index.html)"];
+    B -- "Navigates" --> C["Projects Page (projects/index.html)"];
+    B -- "Navigates" --> D["Experience Page (experience/index.html)"];
+    C -- "Loads Data" --> E["projects.json"];
+    B -- "Loads Data" --> F["skills.json"];
+    B -- "Interactivity" --> G["app.js / script.js"];
+    C -- "Interactivity" --> H["projects/script.js"];
+    D -- "Interactivity" --> I["experience/script.js"];
+    J["Invalid URL"] --> K["404 Page (404.html)"];
+    K -- "Styling/Logic" --> L["assests/css/404.css / assests/js/404.js"];
 ```
 
 ## ⚡ Quick Start Guide
-To get this modern portfolio website up and running on your local machine, follow these simple steps:
+Get your personalized portfolio up and running in minutes!
 
 1.  **Clone the Repository:**
     ```bash
     git clone https://github.com/grewal16/portfolio_website.git
     cd portfolio_website
     ```
-
-2.  **Open in Browser:**
-    As this is a static website, you can simply open the `index.html` file in your preferred web browser.
-    ```bash
-    # For Linux/macOS
-    open index.html
-    # For Windows
-    start index.html
-    ```
-    Alternatively, for a local web server experience, you can use a simple Python server:
-    ```bash
-    python -m http.server 8000
-    ```
-    Then, navigate to `http://localhost:8000` in your browser.
-
-3.  **Customize Your Content:**
-    *   Edit `index.html` and other HTML files for static content.
-    *   Update `projects/projects.json` with your project details.
-    *   Modify `skills.json` to reflect your technical proficiencies.
+2.  **Open in Browser:** Simply open `index.html` in your web browser to view the portfolio locally.
+3.  **Customize Content:**
+    *   Edit `projects/projects.json` to add or modify your projects.
+    *   Update `skills.json` with your technical skills.
     *   Replace `assests/resume.pdf` with your own resume.
-    *   Personalize images in `assests/images/` and styles in `assests/css/` to match your brand.
+    *   Personalize images in `assests/images/` and text content within the `.html` files.
+4.  **Deploy:** Push your changes to your GitHub repository, and the integrated CI/CD pipeline will handle deployment to GitHub Pages (or configure for your preferred static hosting).
 
 ## 📜 License
-This project is licensed under the terms of the [LICENSE](LICENSE) file.
+This project is licensed under the terms of the [MIT License](LICENSE).
